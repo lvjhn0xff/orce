@@ -1,0 +1,182 @@
+[ ] Gather custom objective functions (Top 30) for optimization algorithms. 
+    - 10 : Unimodal
+    - 10 : Bimodal
+    - 10 : Multi-modal
+
+[ ] Prepare adapter classes for optimization algorithms:
+    - RandomSearch  Q12VG
+    - SteepestAscentOptimizer 
+    - SimulatedAnnealing
+    - ParticleSwarmOptimizer 
+    - DifferentialEvolutionOptimizer
+    - GeneticAlgorithmOptimizer 
+    - CMAESOptimizer
+    - FreeSearchOptimizer 
+    - Note: Consider categorical, ordinal, and ratio dimensions. 
+
+[ ] Create adapter classes for APIs of common dataset repositories. 
+    - openml 
+    - uciml 
+    - kaggle 
+    - hugging-face 
+    - local repository
+
+[ ] Create class for auto-detecting feature types from datasets. 
+    - categorical 
+    - nominal 
+    - ratio
+    - optional manual specification
+
+[ ] Create adapters for machine learning models.
+    :: Scikit-Learn - Regression 
+        0. Dummy Models 
+            - DummyRegressor
+        1. Linear Models 
+            - LinearRegression 
+            - Ridge / RidgeCV 
+            - Lasso / LassoCV 
+            - ElasticNet / ElasticNetCV 
+            - SGDRegressor
+            - BayesianRidge / ADBRegression 
+        2. Robust Regresors 
+            - HuberRegressor 
+            - RANSACRegressor 
+            - TheilSenRegressor 
+        3. Distance & Tree-Based Models 
+            - KNeighborsRegressor 
+            - DecisionTreeRegressor
+            - ExtraTreeRegressor 
+            - RandomForestRegressor 
+            - HistGradientBoostingRegressor 
+            - AdaBoostRegressor 
+            - BaggingRegressor 
+        4. Advanced & Non-Linear Models
+            - SVR 
+            - LinearSVR 
+            - NuSVR 
+            - MLPRegressor
+            - GaussianProcessRegressor
+            - KernelRidge
+    :: Scikit-Learn - Classification 
+        0. Dummy Models 
+            - DummyClassifier 
+        1. Linear Models 
+            - LogisticRegression 
+            - LogisticRegressionCV 
+            - RidgeClassifier
+            - RidgeClassifierCV 
+            - SGDClassifier 
+            - Perceptron 
+            - SVC 
+            - LinearSVC 
+        2. Tree & Ensemble Methods 
+            - DecisionTreeClassifier 
+            - ExtraTreeClassifier
+            - RandomForestClassifier 
+            - ExtraTreesClassifier
+            - AdaBoostClassifier
+            - BaggingClassifier 
+            - GradientBoostClassifier 
+            - HistGradientBoostingClassifier 
+        3. Neighbors-Based Models 
+            - KNeighborsClassifier 
+            - RadiusNeighborsClassifier
+            - NearestCentroid 
+        4. Naive Bayes 
+            - GaussianNB 
+            - MultinomialNB 
+            - BernoulliNB 
+            - ComplementNB 
+            - CategoricalNB 
+        5. Discriminant Analysis & Gaussian Processes 
+            - LinearDiscriminantAnalysis 
+            - QuadraticDiscriminantAnalysis 
+            - GaussianProcessClassifier 
+        6. Neural Networks 
+            - MLPClassifier 
+        7. Meta, Multi-Output, & Ensemble Wrappers
+            - VotingClassifier
+            - StackingClassifier 
+            - CalibratedClassifierCV
+            - MultiOutputClassifier
+            - OneVsRestClassifier 
+            - OneVsOneClassifier
+    :: XGBoost 
+        - XGBClassifier
+        - XGBRFClassifier 
+    :: GPLearn 
+        - SymbolicClassifier
+
+[ ] Create experimental framework (RepeatedStratifiedKFold)
+    - Main Experiment Flow & Folds
+        :: Parameters 
+            - dataset_source - string 
+            - dataset_name - string 
+            - dataset_version - number
+            - dataset_author - string 
+            - task_type - string (classification | regression) 
+            - model - string (e.g. MLPClassifier :: Default)
+            - model_overrides  - object
+            
+        :: Classification
+            - Dataset Information   
+                - Types 
+                    - Overall Info 
+                    - Per-Fold Info
+                - Overall Info 
+                    - Train and Test Split Count 
+                    - List of Labels 
+                    - Frequencies of Labels
+            - Performance Metrics 
+                - Common Metrics 
+                    - Accuracy Score 
+                    - Balanced Accuracy Score
+                    - Cohen's Kappa Score 
+                    - Matthews Correlation Coefficient 
+                    - Precision Score 
+                    - Recall Score 
+                    - F1 Score 
+                    - PR-AUC Score 
+                    - ROC-AUC Score
+                    - Brier Loss & Brier Skill Score 
+                    - Log Loss 
+                    - Confusion Matrix 
+                    - Training Time 
+                    - Prediction Times  
+                - Figures
+                    - Calibration Curve 
+                    - PR-AUC Curve 
+                    - ROC-AUC Curve 
+                    - Train / Test Loss Curve
+                    - Train / Test Objective Function Curve
+                    - Confusion Matrix Plot  
+        :: Regression
+            - Dataset Information   
+                - Types 
+                    - Overall Info 
+                    - Per-Fold Info
+                - Overall Info 
+                    - Train and Test Split Count 
+                    - Histogram of Labels (Deciles) 
+                    - Deciles of Labels 
+            - Performance Metrics 
+                - MAE 
+                - MedAE 
+                - MSE 
+                - RMSE
+                - MAPE 
+                - R2 
+                - Explained Variance Score 
+                - Residuals 
+                    - Percentiles 
+                    - Histogram 
+            - Curve 
+                - Histogram of Residuals 
+                - Actual vs Predicted Graphs 
+                
+    - Reporters & Callbacks
+        - JSON Reporter 
+        - Text Reporter 
+        - HTML Reporter 
+    
+[ ] Optional - Create reporter application (Bottle)
