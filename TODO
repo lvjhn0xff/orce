@@ -15,6 +15,7 @@
     - Note: Consider categorical, ordinal, and ratio dimensions. 
 
 [ ] Create adapter classes for APIs of common dataset repositories. 
+    - sklearn synthetic/structured datasets
     - openml 
     - uciml 
     - kaggle 
@@ -117,7 +118,7 @@
             - task_type - string (classification | regression) 
             - model - string (e.g. MLPClassifier :: Default)
             - model_overrides  - object
-            
+
         :: Classification
             - Dataset Information   
                 - Types 
@@ -150,6 +151,8 @@
                     - Train / Test Loss Curve
                     - Train / Test Objective Function Curve
                     - Confusion Matrix Plot  
+                    - If data is 2D: Contour Plots 
+                
         :: Regression
             - Dataset Information   
                 - Types 
@@ -159,6 +162,7 @@
                     - Train and Test Split Count 
                     - Histogram of Labels (Deciles) 
                     - Deciles of Labels 
+
             - Performance Metrics 
                 - MAE 
                 - MedAE 
@@ -173,6 +177,7 @@
             - Curve 
                 - Histogram of Residuals 
                 - Actual vs Predicted Graphs 
+                - If data is 2D: Contour Plots 
                 
     - Reporters & Callbacks
         - JSON Reporter 
